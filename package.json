@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "REST API untuk StudyMate sistem pencarian partner belajar",
   "main": "src/server.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
-    "dev": "nodemon src/server.js",
     "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
     "seed": "node src/seed.js",
     "test": "jest --runInBand"
   },

@@ -1,10 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 async function connectDB() {
-  const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/studymate';
-  mongoose.set('strictQuery', true);
-  await mongoose.connect(mongoUri);
-  console.log('MongoDB connected');
+  try {
+    const mongoUri =
+      process.env.MONGODB_URI ||
+      "mongodb://127.0.0.1:27017/studymate";
+
+    mongoose.set("strictQuery", true);
+
+    await mongoose.connect(mongoUri);
+
+    console.log("✅ MongoDB Connected");
+  } catch (error) {
+    console.error("❌ MongoDB Connection Failed:", error.message);
+    process.exit(1);
+  }
 }
 
 module.exports = connectDB;
